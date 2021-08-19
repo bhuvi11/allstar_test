@@ -37,6 +37,17 @@ jobs:
        name: homework
     - run: zip -r homework.zip math-homework.txt 
     - run: ls ${{github.workspace}}
+  
+    
+    - uses: SAP/fosstars-rating-core-action@v1.0.0
+      with:
+          rating: security
+          report-branch: main
+          report-file: fosstars_security_rating.md
+          badge-file: fosstars_security_rating.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+            
+    
 
   Test:
     needs: hello_world_job
